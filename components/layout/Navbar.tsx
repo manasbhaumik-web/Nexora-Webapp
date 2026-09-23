@@ -117,7 +117,7 @@ function ProductsMegaMenu({ onClose }: { onClose: () => void }) {
  return (
  <motion.div 
  initial="hidden" animate="visible" exit="hidden" variants={megaMenuVariants}
- className="absolute left-1/2 top-full z-50 mt-1 w-[640px] -translate-x-1/2 border border-white/10 bg-[#0F172A]/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-2xl overflow-hidden"
+ className="absolute left-1/2 top-full z-50 mt-1 w-[640px] -translate-x-1/2 border border-white/10 bg-[#0F172A]/85 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-none overflow-hidden"
  >
  <div className="p-8">
  <p className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">Our Products</p>
@@ -129,9 +129,9 @@ function ProductsMegaMenu({ onClose }: { onClose: () => void }) {
  key={item.id}
  href={item.href}
  onClick={onClose}
- className="group flex items-start gap-4 p-3 transition-all duration-200 hover:bg-white/10 border border-transparent hover:border-white/10 rounded-xl"
+ className="group flex items-start gap-4 p-3 transition-all duration-200 hover:bg-white/10 border border-transparent hover:border-white/10 rounded-none"
  >
- <span className="mt-0.5 flex h-10 w-10 rounded-xl flex-shrink-0 items-center justify-center bg-white/5 border border-white/10 transition-all duration-300 group-hover:bg-[#8B5CF6] group-hover:border-[#8B5CF6] group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)]" style={{ color: '#00D4FF' }}>
+ <span className="mt-0.5 flex h-10 w-10 rounded-none flex-shrink-0 items-center justify-center bg-white/5 border border-white/10 transition-all duration-300 group-hover:bg-[#8B5CF6] group-hover:border-[#8B5CF6] group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)]" style={{ color: '#00D4FF' }}>
  <Icon size={18} className="transition-colors group-hover:text-white" />
  </span>
  <div>
@@ -160,7 +160,7 @@ function ServicesMegaMenu({ onClose }: { onClose: () => void }) {
  return (
  <motion.div 
  initial="hidden" animate="visible" exit="hidden" variants={megaMenuVariants}
- className="absolute left-1/2 top-full z-50 mt-1 w-[720px] -translate-x-1/2 border border-white/10 bg-[#0F172A]/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-2xl overflow-hidden"
+ className="absolute left-1/2 top-full z-50 mt-1 w-[720px] -translate-x-1/2 border border-white/10 bg-[#0F172A]/85 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] rounded-none overflow-hidden"
  >
  <div className="p-8 flex flex-col">
  <p className="mb-6 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">What We Do</p>
@@ -172,9 +172,9 @@ function ServicesMegaMenu({ onClose }: { onClose: () => void }) {
  key={item.href}
  href={item.href}
  onClick={onClose}
- className="group flex items-start gap-4 p-3 transition-all duration-200 hover:bg-white/10 border border-transparent hover:border-white/10 rounded-xl"
+ className="group flex items-start gap-4 p-3 transition-all duration-200 hover:bg-white/10 border border-transparent hover:border-white/10 rounded-none"
  >
- <span className="mt-0.5 flex h-10 w-10 rounded-xl flex-shrink-0 items-center justify-center bg-white/5 border border-white/10 transition-all duration-300 group-hover:bg-[#8B5CF6] group-hover:border-[#8B5CF6] group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)]" style={{ color: '#00D4FF' }}>
+ <span className="mt-0.5 flex h-10 w-10 rounded-none flex-shrink-0 items-center justify-center bg-white/5 border border-white/10 transition-all duration-300 group-hover:bg-[#8B5CF6] group-hover:border-[#8B5CF6] group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)]" style={{ color: '#00D4FF' }}>
  <Icon size={18} className="transition-colors group-hover:text-white" />
  </span>
  <div>
