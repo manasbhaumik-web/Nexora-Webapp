@@ -16,12 +16,51 @@ import {
  RefreshCw,
  Lock,
  ArrowRight,
+ Search,
+ Layers,
+ Terminal,
+ Rocket,
+ TrendingUp,
+ ChevronRight,
 } from 'lucide-react'
 import { services } from '@/lib/data/services'
 import { cn } from '@/lib/utils'
 
 const PRIMARY = "#FFFFFF"
 const SECONDARY = "#8B5CF6"
+
+const pipelineSteps = [
+  {
+    number: '01',
+    title: 'Discovery & Audit',
+    description: 'Requirements analysis, technical feasibility & architecture blueprinting.',
+    icon: Search,
+  },
+  {
+    number: '02',
+    title: 'Architecture',
+    description: 'Scalable system design, cloud infrastructure & security protocols.',
+    icon: Layers,
+  },
+  {
+    number: '03',
+    title: 'Engineering',
+    description: 'Agile sprint builds, API integrations & automated code quality checks.',
+    icon: Terminal,
+  },
+  {
+    number: '04',
+    title: 'Deployment',
+    description: 'Automated CI/CD pipelines, staging validation & zero-downtime release.',
+    icon: Rocket,
+  },
+  {
+    number: '05',
+    title: 'Scale & Optimize',
+    description: '24/7 SLA monitoring, autoscaling policies & performance tuning.',
+    icon: TrendingUp,
+  },
+]
 
 const iconMap: Record<string, React.ElementType> = {
  Code2, Globe, Smartphone, Cloud, Cpu, Zap, Lightbulb, GitMerge, Shield, RefreshCw, Lock,
@@ -159,34 +198,78 @@ export function ServicesOverview() {
  })}
  </div>
 
- {/* Blueprint Process Pipeline */}
+ {/* Standardized Delivery Pipeline */}
  <motion.div
- initial={{ opacity: 0, y: 20 }}
+ initial={{ opacity: 0, y: 30 }}
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true, margin: "-50px" }}
  transition={{ duration: 0.6 }}
- className="border border-white/10 bg-white/5 p-8 lg:p-12 relative overflow-hidden"
+ className="border border-white/10 bg-[#0F172A]/80 backdrop-blur-2xl p-8 lg:p-12 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
  >
- <div className="absolute top-0 right-0 p-4 opacity-10">
- <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
- <circle cx="50" cy="50" r="40" stroke="#0f172a" strokeWidth="2" strokeDasharray="4 4" />
- <circle cx="50" cy="50" r="20" stroke="#0f172a" strokeWidth="2" />
- </svg>
+ {/* Ambient Glow Orbs */}
+ <div className="absolute -top-24 -right-24 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
+ <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+ {/* Section Header */}
+ <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-white/10 pb-8">
+ <div>
+ <div className="inline-flex items-center gap-2 border border-[#00D4FF]/30 bg-[#00D4FF]/10 backdrop-blur-md px-3 py-1 text-[11px] font-bold tracking-widest uppercase text-[#00D4FF] mb-3">
+ <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" />
+ Engineering Methodology
  </div>
- 
- <div className="relative z-10">
- <h4 className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-8">Standardized Delivery Pipeline</h4>
- <div className="flex flex-col md:flex-row gap-4 md:gap-0 justify-between">
- {['01. Discovery', '02. Architecture', '03. Engineering', '04. Deployment', '05. Scale'].map((step, i) => (
- <div key={i} className="flex-1 relative group">
- <div className="flex items-center mb-4">
- <div className="w-2 h-2 bg-slate-300 group-hover:bg-[#E67E22] transition-colors" />
- <div className="h-px bg-slate-200 flex-1 ml-4 mr-4 md:mr-0 group-hover:bg-[#E67E22] transition-colors" />
+ <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+ Standardized <span className="text-gradient">Delivery Pipeline</span>
+ </h3>
  </div>
- <span className="text-sm font-bold text-white pr-4">{step}</span>
+ <p className="text-xs text-gray-400 font-medium max-w-md leading-relaxed">
+ A battle-tested 5-phase delivery framework driving predictable enterprise execution from initial discovery to global infrastructure scaling.
+ </p>
  </div>
- ))}
+
+ {/* 5-Step Connected Timeline Bento Grid */}
+ <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+ {pipelineSteps.map((step, i) => {
+ const Icon = step.icon
+ return (
+ <div
+ key={step.number}
+ className="group relative bg-white/5 border border-white/10 p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#00D4FF]/50 hover:bg-white/[0.08] hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(0,212,255,0.15)]"
+ >
+ {/* Connecting Arrow for Desktop */}
+ {i < 4 && (
+ <div className="hidden lg:block absolute top-1/2 -right-3 z-20 -translate-y-1/2 text-gray-600 group-hover:text-[#00D4FF] transition-colors">
+ <ChevronRight size={16} />
  </div>
+ )}
+
+ <div>
+ {/* Step Header: Number Badge & Icon */}
+ <div className="flex items-center justify-between mb-5">
+ <span className="font-heading text-xs font-black tracking-widest uppercase px-2 py-0.5 bg-white/10 border border-white/10 text-[#00D4FF] group-hover:bg-[#8B5CF6] group-hover:text-white group-hover:border-[#8B5CF6] transition-all duration-300">
+ {step.number}
+ </span>
+ <div className="p-2.5 bg-white/5 border border-white/10 text-gray-300 group-hover:text-[#00D4FF] group-hover:bg-[#00D4FF]/10 group-hover:border-[#00D4FF]/30 transition-all duration-300">
+ <Icon size={18} />
+ </div>
+ </div>
+
+ {/* Title & Description */}
+ <h4 className="font-heading text-sm font-bold text-white group-hover:text-[#00D4FF] transition-colors mb-2">
+ {step.title}
+ </h4>
+ <p className="text-[11px] text-gray-400 leading-relaxed font-normal">
+ {step.description}
+ </p>
+ </div>
+
+ {/* Bottom Phase Indicator */}
+ <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">
+ <span>Phase 0{i + 1}</span>
+ <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-[#00D4FF] group-hover:shadow-[0_0_8px_#00D4FF] transition-all" />
+ </div>
+ </div>
+ )
+ })}
  </div>
  </motion.div>
 
