@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   CSS Custom Properties — Design Tokens
+   Enterprise Dark Mode Palette
+───────────────────────────────────────── */
+:root {
+  --color-primary:        #FFFFFF;
+  --color-secondary:      #8B5CF6; /* Violet 500 */
+  --color-accent:         #7C3AED; /* Violet 600 */
+  --color-accent-light:   #E11D48; /* Rose 600 */
+  --color-accent-dark:    #4C1D95; /* Violet 900 */
+  --color-background:     #0F172A;
+  --color-card:           rgba(255, 255, 255, 0.03);
+  --color-border:         rgba(255, 255, 255, 0.1);
+  --color-muted:          rgba(255, 255, 255, 0.05);
+  --color-muted-fg:       #94A3B8;
+  --color-foreground:     #FFFFFF;
+
+  --font-heading: 'Lexend', 'Inter', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --radius-sm:  0.5rem;
+  --radius-md:  0.75rem;
+  --radius-lg:  1rem;
+  --radius-xl:  1.5rem;
+  --radius-2xl: 2rem;
+
+  --shadow-card:       0 4px 30px rgba(0,0,0,0.5);
+  --shadow-card-hover: 0 10px 50px rgba(124, 58, 237, 0.15);
+  --shadow-accent:     0 0 30px rgba(255,255,255,0.2);
+
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base:   250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─────────────────────────────────────────
+   Base Reset & Defaults
+───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+/* ─────────────────────────────────────────
+   Scrollbar
+───────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-background); }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-secondary); }
+
+/* ─────────────────────────────────────────
+   Utility Layer
+───────────────────────────────────────── */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-rose-500;
+  }
+
+  .text-gradient-light {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-rose-400;
+  }
+
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .anim-fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .anim-fade-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─────────────────────────────────────────
+   Component Layer
+───────────────────────────────────────── */
+@layer components {
+  /* ── Buttons ─────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           bg-[#8B5CF6] text-white font-bold font-heading text-sm uppercase tracking-widest cursor-pointer
+           transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.3)]
+           hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(139,92,246,0.6)] hover:bg-[#7C3AED]
+           active:scale-95
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-500;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4
+           bg-[#0F172A] border border-white/20 text-white font-bold font-heading text-sm uppercase tracking-widest cursor-pointer
+           transition-all duration-300 shadow-sm
+           hover:-translate-y-1 hover:bg-white/10 hover:border-violet-500/50 hover:shadow-[0_0_25px_rgba(139,92,246,0.3)]
+           active:scale-95
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-white/50;
+  }
+
+  .btn-outline {
+    @apply btn-secondary;
+  }
+
+  /* ── Cards ───────────────────────────── */
+  .card {
+    @apply bg-white/5 border border-white/10 rounded-[2rem] backdrop-blur-xl
+           transition-all duration-300 cursor-default;
+  }
+  .card-hover {
+    @apply card cursor-pointer hover:-translate-y-1 hover:shadow-card-hover hover:border-violet-500/40 hover:bg-white/10;
+  }
+
+  /* ── Badges ──────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 
+           text-xs font-semibold font-heading tracking-wide border rounded-full backdrop-blur-md;
+  }
+  .badge-accent {
+    @apply badge bg-violet-500/10 text-violet-400 border-violet-500/20;
+  }
+  .badge-dark {
+    @apply badge bg-white/10 text-white border-white/20;
+  }
+  .badge-gray {
+    @apply badge bg-white/5 text-gray-300 border-white/10;
+  }
+  .badge-success {
+    @apply badge bg-emerald-500/10 text-emerald-400 border-emerald-500/20;
+  }
+
+  /* ── Section eyebrow ─────────────────── */
+  .section-eyebrow {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-rose-400 font-heading font-bold text-sm uppercase tracking-[0.2em];
+  }
+
+  /* ── Form input ──────────────────────── */
+  .form-input {
+    @apply w-full px-4 py-4 border border-white/10 bg-black/40 rounded-xl
+           font-body text-white text-base backdrop-blur-md
+           transition-colors duration-200
+           placeholder:text-gray-500
+           focus:outline-none focus:ring-1 focus:ring-violet-500 focus:border-violet-500
+           hover:border-white/20;
+  }
+
+  .nav-link {
+    @apply font-heading font-medium text-sm transition-colors duration-200 text-gray-300 hover:text-white;
+  }
+
+  select option {
+    background-color: #0F172A;
+    color: #FFFFFF;
+  }
+}
