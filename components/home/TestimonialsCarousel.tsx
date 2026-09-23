@@ -35,9 +35,9 @@ export function TestimonialsCarousel() {
  <span className="w-2 h-2 block" style={{ backgroundColor: SECONDARY }} />
  Client Validation
  </div>
- <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4 leading-[1.1]" style={{ color: PRIMARY }}>
+ <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4 leading-[1.1]">
  Trusted by global <br />
- <span className="text-gray-400">technology leaders.</span>
+ <span className="text-gradient">technology leaders.</span>
  </h2>
  </motion.div>
 

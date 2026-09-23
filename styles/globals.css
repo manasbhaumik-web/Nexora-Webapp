@@ -85,11 +85,11 @@ h1, h2, h3, h4, h5, h6 {
 ───────────────────────────────────────── */
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-rose-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#A855F7] via-[#D946EF] to-[#F43F5E];
   }
 
   .text-gradient-light {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-rose-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FB7185];
   }
 
   .bg-dot-pattern {

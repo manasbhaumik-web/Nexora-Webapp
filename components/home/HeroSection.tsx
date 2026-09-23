@@ -88,7 +88,7 @@ export function HeroSection() {
 
  <motion.h1 variants={itemVars} className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tighter mb-8 text-white max-w-5xl mx-auto">
  Engineer Your <br className="hidden sm:block" />
- <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#EC4899] to-[#00D4FF]">Unfair Advantage.</span>
+ <span className="text-gradient">Unfair Advantage.</span>
  </motion.h1>
 
  <motion.p variants={itemVars} className="text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto mb-12 font-medium leading-relaxed">

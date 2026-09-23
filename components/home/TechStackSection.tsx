@@ -47,7 +47,7 @@ export function TechStackSection() {
  </div>
  <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-4 leading-[1.1]">
  Enterprise-Grade <br />
- <span className="text-gray-400">Infrastructure.</span>
+ <span className="text-gradient">Infrastructure.</span>
  </h2>
  </motion.div>
 

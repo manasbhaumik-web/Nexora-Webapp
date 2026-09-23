@@ -36,7 +36,7 @@ export function VisionStatement() {
  <h2 className="text-5xl md:text-7xl lg:text-[7rem] font-black tracking-tighter text-white leading-[0.85]">
  We don't just <br className="hidden md:block" />
  build software.<br />
- <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] via-[#00D4FF] to-[#00D4FF] mt-4 block">
+ <span className="text-gradient mt-4 block">
  We engineer unfair advantages.
  </span>
  </h2>
