@@ -200,72 +200,64 @@ export function ServicesOverview() {
 
  {/* Standardized Delivery Pipeline */}
  <motion.div
- initial={{ opacity: 0, y: 30 }}
+ initial={{ opacity: 0, y: 20 }}
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true, margin: "-50px" }}
  transition={{ duration: 0.6 }}
- className="border border-white/10 bg-[#0F172A]/80 backdrop-blur-2xl p-8 lg:p-12 relative overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+ className="pt-16 mt-16 border-t border-white/10"
  >
- {/* Ambient Glow Orbs */}
- <div className="absolute -top-24 -right-24 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl pointer-events-none" />
- <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-
- {/* Section Header */}
- <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 border-b border-white/10 pb-8">
+ {/* Section Title Header */}
+ <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
  <div>
- <div className="inline-flex items-center gap-2 border border-[#00D4FF]/30 bg-[#00D4FF]/10 backdrop-blur-md px-3 py-1 text-[11px] font-bold tracking-widest uppercase text-[#00D4FF] mb-3">
- <span className="w-1.5 h-1.5 rounded-full bg-[#00D4FF] animate-pulse" />
- Engineering Methodology
- </div>
+ <p className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-2">
+ Standardized Delivery Pipeline
+ </p>
  <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
- Standardized <span className="text-gradient">Delivery Pipeline</span>
+ Battle-Tested <span className="text-[#00D4FF]">5-Step Framework</span>
  </h3>
  </div>
  <p className="text-xs text-gray-400 font-medium max-w-md leading-relaxed">
- A battle-tested 5-phase delivery framework driving predictable enterprise execution from initial discovery to global infrastructure scaling.
+ Predictable enterprise execution from initial discovery and system design to automated CI/CD deployment and global infrastructure scaling.
  </p>
  </div>
 
- {/* 5-Step Connected Timeline Bento Grid */}
- <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+ {/* Connected Timeline Flow Bar */}
+ <div className="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8 relative">
+ {/* Background Connecting Line for Desktop */}
+ <div className="hidden md:block absolute top-[19px] left-4 right-4 h-px bg-white/10 z-0" />
+
  {pipelineSteps.map((step, i) => {
  const Icon = step.icon
  return (
- <div
- key={step.number}
- className="group relative bg-white/5 border border-white/10 p-6 flex flex-col justify-between transition-all duration-300 hover:border-[#00D4FF]/50 hover:bg-white/[0.08] hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(0,212,255,0.15)]"
- >
- {/* Connecting Arrow for Desktop */}
- {i < 4 && (
- <div className="hidden lg:block absolute top-1/2 -right-3 z-20 -translate-y-1/2 text-gray-600 group-hover:text-[#00D4FF] transition-colors">
- <ChevronRight size={16} />
- </div>
- )}
-
- <div>
- {/* Step Header: Number Badge & Icon */}
- <div className="flex items-center justify-between mb-5">
- <span className="font-heading text-xs font-black tracking-widest uppercase px-2 py-0.5 bg-white/10 border border-white/10 text-[#00D4FF] group-hover:bg-[#8B5CF6] group-hover:text-white group-hover:border-[#8B5CF6] transition-all duration-300">
+ <div key={step.number} className="relative z-10 group flex flex-col">
+ {/* Step Indicator Node */}
+ <div className="flex items-center gap-3 mb-6">
+ <div className="relative flex items-center justify-center w-10 h-10 bg-[#0F172A] border border-white/20 group-hover:border-[#00D4FF] group-hover:bg-[#00D4FF]/10 transition-colors duration-300">
+ <span className="text-xs font-mono font-bold text-[#00D4FF]">
  {step.number}
  </span>
- <div className="p-2.5 bg-white/5 border border-white/10 text-gray-300 group-hover:text-[#00D4FF] group-hover:bg-[#00D4FF]/10 group-hover:border-[#00D4FF]/30 transition-all duration-300">
- <Icon size={18} />
  </div>
+ <div className="md:hidden flex-1 h-px bg-white/10" />
  </div>
 
- {/* Title & Description */}
- <h4 className="font-heading text-sm font-bold text-white group-hover:text-[#00D4FF] transition-colors mb-2">
+ {/* Step Card Details */}
+ <div className="p-5 border border-white/10 bg-white/[0.02] transition-all duration-300 group-hover:border-[#00D4FF]/40 group-hover:bg-white/[0.05] flex-1 flex flex-col justify-between">
+ <div>
+ <div className="flex items-center gap-2 mb-3">
+ <Icon size={16} className="text-[#00D4FF] opacity-80 group-hover:opacity-100 transition-opacity" />
+ <h4 className="font-heading text-sm font-bold text-white group-hover:text-[#00D4FF] transition-colors">
  {step.title}
  </h4>
- <p className="text-[11px] text-gray-400 leading-relaxed font-normal">
+ </div>
+ <p className="text-xs text-gray-400 leading-relaxed font-normal">
  {step.description}
  </p>
  </div>
 
- {/* Bottom Phase Indicator */}
- <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[10px] font-mono font-bold text-gray-400 uppercase tracking-widest">
+ <div className="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] font-mono uppercase tracking-widest text-gray-500 group-hover:text-gray-300 transition-colors">
  <span>Phase 0{i + 1}</span>
- <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-[#00D4FF] group-hover:shadow-[0_0_8px_#00D4FF] transition-all" />
+ <ChevronRight size={12} className="text-[#00D4FF] opacity-0 group-hover:opacity-100 transition-opacity" />
+ </div>
  </div>
  </div>
  )
