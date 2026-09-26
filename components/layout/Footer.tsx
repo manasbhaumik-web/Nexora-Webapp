@@ -20,6 +20,7 @@ const productLinks: FooterLink[] = [
  { label: 'Learning Management System', href: '/products/learning-management-system' },
  { label: 'Campus Management System', href: '/products/campus-management-system' },
  { label: 'Clinical Management System', href: '/products/clinical-management-system' },
+ { label: 'MediClinic Enterprise', href: '/products/mediclinic-enterprise' },
  { label: 'HR Management System', href: '/products/hr-management-system' },
  { label: 'Inventory Management', href: '/products/inventory-management-system' },
 ]
